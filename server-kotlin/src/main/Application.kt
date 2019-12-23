@@ -2,13 +2,12 @@ package main
 
 import akka.actor.ActorSystem
 import io.ktor.application.*
-import io.ktor.response.*
 import io.ktor.routing.*
-import io.ktor.http.*
 import io.ktor.auth.*
 import com.fasterxml.jackson.databind.*
 import com.typesafe.config.ConfigFactory
 import digital.cesko.city_search.CitySearchService
+import digital.cesko.routers.chartGeneratorRouter
 import digital.cesko.routers.citySearchRouter
 import io.ktor.jackson.*
 import io.ktor.features.*
@@ -45,6 +44,7 @@ fun Application.module(testing: Boolean = false) {
 
     routing {
         citySearchRouter()
+        chartGeneratorRouter()
     }
 }
 
